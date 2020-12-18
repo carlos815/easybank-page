@@ -1,0 +1,30 @@
+.navbar {
+  width: 100%;
+  z-index: 30;
+  min-height: 3.5rem;
+  display: flex;
+  background-color: $color-white;
+  @include padding(0.5, 0, 0.5, 0);
+  & .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    & .navbar-brand {
+    }
+
+    & .navbar-menu {
+      display: flex;
+      font-weight: 300;
+      & .navbar-start {
+        & .navbar-item {
+          @include padding(0, 0.5, 0, 0.5);
+        }
+      }
+    }
+
+    & .navbar-end {
+    }
+  }
+}

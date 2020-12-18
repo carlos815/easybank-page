@@ -9,49 +9,34 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
+      <div className='blog-roll'>
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
-                }`}
-              >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                  <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
+            <article
+              className={`blog-list-item ${
+                post.frontmatter.featuredpost ? 'is-featured' : ''
+              }`}
+              key={post.id}>
+              {post.frontmatter.featuredimage ? (
+                <Link className='featured-thumbnail' to={post.fields.slug}>
+                  <PreviewCompatibleImage
+                    imageInfo={{
+                      image: post.frontmatter.featuredimage,
+                      alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                    }}
+                  />
+                </Link>
+              ) : null}
+              <header className='post-meta'>
+                <p className='author'>
+                  <Link>By {post.frontmatter.author}</Link>
                 </p>
-              </article>
-            </div>
+                <h3 className='title'>
+                  <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
+                </h3>
+                <p className='excerpt'>{post.excerpt}</p>
+              </header>
+            </article>
           ))}
       </div>
     )
@@ -76,19 +61,20 @@ export default () => (
         ) {
           edges {
             node {
-              excerpt(pruneLength: 400)
+              excerpt(pruneLength: 125)
               id
               fields {
                 slug
               }
               frontmatter {
                 title
+                author
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
                 featuredimage {
                   childImageSharp {
-                    fluid(maxWidth: 120, quality: 100) {
+                    fluid(maxWidth: 280, quality: 100) {
                       ...GatsbyImageSharpFluid
                     }
                   }

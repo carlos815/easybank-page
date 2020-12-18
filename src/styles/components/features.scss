@@ -1,0 +1,17 @@
+.feature-grid {
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  @include margin(0, -0.6, 0, -0.6);
+
+  .feature-item {
+    max-width: 270px;
+    width: 100%;
+    @include margin(0.5, 0.6, 0.5, 0.6);
+
+    h3 {
+      @include margin(1.2, 0, 1.2, 0);
+    }
+  }
+}

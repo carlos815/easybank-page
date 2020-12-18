@@ -1,0 +1,38 @@
+.blog-roll {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @include margin(0, -0.6, 0, -0.6);
+
+  .blog-list-item {
+    max-width: 270px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: $color-white;
+    @include margin(0.5, 0.6, 0.5, 0.6);
+
+    .featured-thumbnail {
+      div {
+        height: 200px;
+        max-height: 200px;
+      }
+    }
+    header {
+      @include padding-equal(1.2);
+      * {
+        margin: 0;
+      }
+      .author {
+        font-size: $typographic-base-font-size * 0.675;
+      }
+      .title {
+        @include margin(0.5, 0, 0.5, 0);
+        a {
+          color: $color-base;
+          font-size: $typographic-base-font-size * 1.3;
+        }
+      }
+    }
+  }
+}
