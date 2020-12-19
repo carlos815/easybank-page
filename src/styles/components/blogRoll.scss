@@ -4,7 +4,9 @@
   justify-content: center;
   width: 100%;
   @include margin(0, -0.6, 0, -0.6);
-
+  @media (max-width: $layout-breakpoint-sm) {
+    margin: 0;
+  }
   .blog-list-item {
     max-width: 261px;
     width: 100%;

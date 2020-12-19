@@ -4,7 +4,9 @@
   width: 100%;
   flex-wrap: wrap;
   @include margin(0, -0.6, 0, -0.6);
-
+  @media (max-width: $layout-breakpoint-sm) {
+    margin: 0;
+  }
   .feature-item {
     max-width: 261px;
     width: 100%;
