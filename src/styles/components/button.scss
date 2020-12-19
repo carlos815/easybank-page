@@ -1,10 +1,26 @@
 .btn {
   &-important {
+    position: relative;
+    width: fit-content;
     font-weight: 700;
     background: linear-gradient(90deg, $color-primary, $color-secondary);
     color: $color-white;
     border-radius: 9999px;
     white-space: nowrap;
     @include padding(0.5, 1.3, 0.5, 1.3);
+    &:hover {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $color-white;
+        opacity: 0.35;
+        border-radius: 9999px;
+      }
+      color: $color-white;
+    }
   }
 }

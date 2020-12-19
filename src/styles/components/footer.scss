@@ -1,0 +1,83 @@
+footer {
+  background-color: $color-base;
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    $padding-container: 52px;
+    padding-top: $padding-container;
+    padding-bottom: $padding-container;
+    @media (max-width: $layout-breakpoint-sm) {
+      flex-direction: column;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .brand-item {
+        @media (max-width: $layout-breakpoint-sm) {
+          margin-bottom: 30px;
+        }
+      }
+      .social {
+        display: flex;
+
+        a {
+          margin-right: 0.875rem;
+
+          &:hover {
+            & svg path {
+              fill: $color-primary;
+            }
+          }
+        }
+        @media (max-width: $layout-breakpoint-sm) {
+          margin-bottom: 30px;
+        }
+      }
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      flex-direction: column;
+      margin: 0 auto 0 0;
+      height: 110px;
+      width: 40%;
+      @media (max-width: $layout-breakpoint-sm) {
+        margin: 0;
+        width: 100%;
+        height: unset;
+        align-items: center;
+        padding: 0;
+        margin-bottom: 30px;
+      }
+      &-item {
+        a {
+          color: $color-white;
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
+      }
+    }
+
+    .last-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      .btn {
+        @media (max-width: $layout-breakpoint-sm) {
+          margin-bottom: 30px;
+        }
+      }
+      .copyright {
+        color: $color-gray;
+      }
+    }
+  }
+}

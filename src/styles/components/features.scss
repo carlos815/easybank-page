@@ -1,15 +1,20 @@
 .feature-grid {
   display: flex;
   justify-content: center;
-
+  width: 100%;
   flex-wrap: wrap;
   @include margin(0, -0.6, 0, -0.6);
 
   .feature-item {
-    max-width: 270px;
+    max-width: 261px;
     width: 100%;
-    @include margin(0.5, 0.6, 0.5, 0.6);
 
+    @include margin(0.5, 0.6, 0.5, 0.6);
+    @media (max-width: $layout-breakpoint-sm) {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
     h3 {
       @include margin(1.2, 0, 1.2, 0);
     }

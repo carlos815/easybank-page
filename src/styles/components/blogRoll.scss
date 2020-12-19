@@ -2,16 +2,19 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
   @include margin(0, -0.6, 0, -0.6);
 
   .blog-list-item {
-    max-width: 270px;
+    max-width: 261px;
     width: 100%;
     border-radius: 5px;
     overflow: hidden;
     background-color: $color-white;
     @include margin(0.5, 0.6, 0.5, 0.6);
-
+    @media (max-width: $layout-breakpoint-sm) {
+      max-width: 9999px;
+    }
     .featured-thumbnail {
       div {
         height: 200px;
@@ -31,6 +34,10 @@
         a {
           color: $color-base;
           font-size: $typographic-base-font-size * 1.3;
+
+          &:hover {
+            color: $color-primary;
+          }
         }
       }
     }

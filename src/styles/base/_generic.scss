@@ -182,11 +182,16 @@ figcaption {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1170px;
   align-self: center;
   margin: 0 auto;
+  padding: 0 30px 0 30px;
 }
 .layout {
   display: flex;
   flex-direction: column;
+}
+
+img {
+  max-width: unset;
 }

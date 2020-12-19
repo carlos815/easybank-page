@@ -4,7 +4,6 @@
   min-height: 3.5rem;
   display: flex;
   background-color: $color-white;
-  @include padding(0.5, 0, 0.5, 0);
   & .container {
     display: flex;
     justify-content: space-between;
@@ -17,14 +16,121 @@
     & .navbar-menu {
       display: flex;
       font-weight: 300;
+      z-index: 10;
+      height: 70px;
+      @media (max-width: $layout-breakpoint-sm) {
+        transition: all 0.5s ease;
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        & .navbar-start {
+          position: absolute;
+          display: flex;
+          flex-direction: column;
+          background-color: $color-white;
+          border-radius: 5px;
+          left: 20px;
+          right: 20px;
+          top: 100px;
+          align-items: center;
+          padding: 20px;
+          padding-bottom: -20px;
+
+          & .navbar-item {
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: $color-base;
+            &:last-of-type {
+              margin-bottom: 0;
+            }
+          }
+          &:before {
+            content: '';
+            width: 100vw;
+            height: 100vh;
+            background-image: linear-gradient(180deg, $color-base, transparent);
+            position: absolute;
+            z-index: -1;
+            top: -18px;
+          }
+        }
+        &.is-active {
+          display: flex;
+          opacity: 1;
+        }
+      }
       & .navbar-start {
+        display: flex;
+        align-items: center;
         & .navbar-item {
-          @include padding(0, 0.5, 0, 0.5);
+          height: 100%;
+          @include margin(0, 0.5, 0, 0.5);
+          position: relative;
+          display: flex;
+          align-items: center;
+          &:hover {
+            color: $color-base;
+            &:after {
+              content: '';
+              position: absolute;
+              height: 4px;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              background: linear-gradient(
+                90deg,
+                $color-primary,
+                $color-secondary
+              );
+            }
+          }
         }
       }
     }
 
     & .navbar-end {
+      @media (max-width: $layout-breakpoint-sm) {
+        display: none;
+      }
+    }
+  }
+  &-burger {
+    display: none;
+
+    @media (max-width: $layout-breakpoint-sm) {
+      display: inline;
+      height: 20px;
+      width: 20px;
+      z-index: 1000;
+      position: relative;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      div {
+        position: absolute;
+        font-size: 23px;
+        left: 0;
+        right: 0;
+        border: 1px solid $color-base;
+        top: 50%;
+        transition: transform 0.5s ease;
+        &:first-of-type {
+          transform: translate(0, 3px);
+        }
+        &:last-of-type {
+          transform: translate(0, -3px);
+        }
+      }
+      &.is-active {
+        div {
+          &:first-of-type {
+            transform: rotate(225deg);
+          }
+          &:last-of-type {
+            transform: rotate(-225deg);
+          }
+        }
+      }
     }
   }
 }
