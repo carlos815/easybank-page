@@ -6,8 +6,6 @@ import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 import Img from 'gatsby-image'
-import bgDesktop from '../img/svg/bg-intro-desktop.svg'
-import bgMobile from '../img/svg/bg-intro-mobile.svg'
 
 export const IndexPageTemplate = ({
   image,
@@ -34,7 +32,6 @@ export const IndexPageTemplate = ({
               <Img
                 className='foreground-img'
                 fluid={image.childImageSharp.fluid}></Img>
-              <img className='background-img' src={bgDesktop}></img>
             </div>
           </div>
         </div>

@@ -13,6 +13,15 @@
 
 .section.hero {
   z-index: 20;
+  @media (max-width: $layout-breakpoint-sm) {
+    background-image: url(../img/bg-intro-mobile.svg);
+    background-position: center -27vw;
+    background-size: contain;
+  }
+  background-image: url(../img/bg-intro-desktop.svg);
+  background-repeat: no-repeat;
+  background-position: 40vw 83%;
+
   .container .section-content {
     display: flex;
     @media (max-width: $layout-breakpoint-sm) {
@@ -22,15 +31,23 @@
     }
     .hero-text {
       width: 45%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       @media (max-width: $layout-breakpoint-sm) {
         width: 100%;
+        align-items: center;
+        margin-top: calc(50vw - 500px);
       }
       h1 {
+        margin: 0;
       }
       h3 {
         color: $color-gray;
         @include margin-top(2);
         @include margin-bottom(2);
+        margin-top: 30px;
+        margin-bottom: 30px;
         font-size: $typographic-base-font-size * 1.25;
       }
     }
@@ -40,7 +57,9 @@
       height: 650px;
       @media (max-width: $layout-breakpoint-sm) {
         width: 100%;
-        height: 326px;
+        /* height: 586px; */
+        display: flex;
+        justify-content: center;
       }
 
       .foreground-img {
@@ -55,19 +74,7 @@
           left: 0%;
           width: 100%;
           max-width: 500px;
-        }
-      }
-      .background-img {
-        position: absolute;
-        width: 100rem;
-        max-width: 90rem;
-        top: -55%;
-        left: -2%;
-        z-index: -10;
-        @media (max-width: $layout-breakpoint-sm) {
-          left: -170px;
-          top: -370px;
-          width: 1000px;
+          height: fit-content;
         }
       }
     }
